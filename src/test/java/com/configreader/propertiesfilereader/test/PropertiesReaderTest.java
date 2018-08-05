@@ -1,7 +1,8 @@
-package com.wizonsoft.propertiesFileReader.test;
+package com.configreader.propertiesfilereader.test;
 
-import static com.configreader.utils.Sleeper.sleep;
+import static com.configreader.propertiesfilereader.utils.Sleeper.sleep;
 
+import java.io.FileNotFoundException;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
@@ -9,14 +10,14 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.configreader.propertiesFileReader.main.GooglePage;
-import com.configreader.propertiesFileReader.main.PropertiesReader;
+import com.configreader.propertiesfilereader.main.GooglePage;
+import com.configreader.propertiesfilereader.main.PropertiesReader;
 
 public class PropertiesReaderTest {
 
 	@Test(priority = 1)
-	public void Test1() throws Exception {
-		WebDriver driver;
+	public void Test1() throws Exception,FileNotFoundException {
+		final WebDriver driver;
 		PropertiesReader prop = new PropertiesReader();
 
 		final String exe = prop.getKey("exe");
@@ -40,7 +41,7 @@ public class PropertiesReaderTest {
 	}
 
 	@Test(priority = 2)
-	public void Test2() throws Exception {
+	public void Test2() throws Exception,FileNotFoundException {
 
 		PropertiesReader prop = new PropertiesReader();
 

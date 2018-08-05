@@ -1,30 +1,33 @@
-package com.configreader.propertiesFileReader.main;
+package com.configreader.propertiesfilereader.main;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
+import org.apache.log4j.Logger;
+
 public class PropertiesReader {
 	private static Properties prop;
+	private static Logger logger = Logger.getLogger(PropertiesReader.class);
 
 	static {
 		try (InputStream input = ClassLoader.class.getResourceAsStream("/config.properties")) {
 			prop = new Properties();
 			prop.load(input);
+			logger.info("Properties File loaded successfully.");
 		} catch (FileNotFoundException e) {
-			System.out.println("Config File not Found!");
-			e.printStackTrace();
+			logger.error("Config File not Found!", e);
 
 		} catch (IOException e) {
-			System.out.println("Error Occurred while reading file");
-			e.printStackTrace();
+			logger.error("Error Occurred while reading file", e);
 
 		}
 	}
 
 	public String getKey(String key) {
 		return prop.getProperty(key);
+
 	}
 
 }
