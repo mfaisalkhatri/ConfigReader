@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 
 public class GooglePage {
 
-	public WebDriver driver;
+	public final WebDriver driver;
 
 	public GooglePage(WebDriver driver) {
 		this.driver = driver;
