@@ -1,4 +1,4 @@
-package com.configreader.propertiesfilereader.main;
+package com.configreader.configreader.main;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;

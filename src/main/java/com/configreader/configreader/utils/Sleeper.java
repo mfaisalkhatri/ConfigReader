@@ -1,4 +1,4 @@
-package com.configreader.propertiesfilereader.utils;
+package com.configreader.configreader.utils;
 
 import org.apache.log4j.Logger;
 

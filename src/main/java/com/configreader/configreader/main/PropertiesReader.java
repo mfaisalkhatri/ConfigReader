@@ -1,4 +1,4 @@
-package com.configreader.propertiesfilereader.main;
+package com.configreader.configreader.main;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
