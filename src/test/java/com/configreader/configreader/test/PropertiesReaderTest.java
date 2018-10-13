@@ -14,18 +14,24 @@ import org.testng.annotations.Test;
 import com.configreader.configreader.main.GooglePage;
 import com.configreader.configreader.main.PropertiesReader;
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Step;
+import io.qameta.allure.Story;
+
+@Epic("Unit Test for Config ReadGet Value from er Repo")
+@Feature("Get values from config.properties and pass in tests")
 public class PropertiesReaderTest {
 
-	@Test(priority = 1)
-	public void Test1() throws FileNotFoundException, IOException, Throwable {
-		final WebDriver driver;
-		PropertiesReader prop = new PropertiesReader();
+	private WebDriver driver = null;
+	@Step
+	public void setup() throws IOException {
 
+		PropertiesReader prop = new PropertiesReader();
 		final String exe = prop.getKey("exe");
 		final String path = getClass().getClassLoader().getResource(exe).getPath();
 
 		String website = prop.getKey("url");
-		String srch = prop.getKey("searchtext");
 
 		System.setProperty("webdriver.chrome.driver", path);
 
@@ -34,18 +40,32 @@ public class PropertiesReaderTest {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 
+	}
+
+	@Step
+	public void quitBrowser() {
+		driver.quit();
+	}
+
+	@Test(priority = 1)
+	@Story("Get Key Value from config and search text in Google Site")
+	public void test1() throws FileNotFoundException, IOException, Throwable {
+
+		setup();
+		
+		PropertiesReader prop = new PropertiesReader();
+		String srch = prop.getKey("searchtext");
 		GooglePage google = new GooglePage(driver);
 		google.searchText(srch);
 		sleep(2000);
 
-		driver.quit();
+		quitBrowser();
 	}
 
 	@Test(priority = 2)
-	public void Test2() throws FileNotFoundException, IOException, Throwable {
-
+	@Story("Get Key Value from config and print in console")
+	public void test2() throws FileNotFoundException, IOException, Throwable {
 		PropertiesReader prop = new PropertiesReader();
-
 		String exe = prop.getKey("exe");
 		String website = prop.getKey("url");
 		String srch = prop.getKey("searchtext");
@@ -59,8 +79,9 @@ public class PropertiesReaderTest {
 
 	}
 
-	@Test(priority=3)
-	public void InvalidTest() throws IOException {
+	@Test(priority = 3)
+	@Story("Get Key 2 valid values and 1 Invalid value from config and check for exceptions/errors")
+	public void test3() throws IOException {
 		PropertiesReader prop = new PropertiesReader();
 		String exe = prop.getKey("exe");
 		String invalidval = prop.getKey("invalidval");

@@ -1,0 +1,5 @@
+test.os = ${os.name}
+
+test.os.arch = ${os.arch}
+
+test.os.version = ${os.version}
