@@ -30,6 +30,7 @@ public class PropertiesReaderTest {
 		osSetup.setup();
 		ChromeOptions options = new ChromeOptions();
 		options.setExperimentalOption("useAutomationExtension", false);
+		options.addArguments("--disable-dev-shm-usage");
 		driver = new ChromeDriver(options);
 		driver.get(website);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
