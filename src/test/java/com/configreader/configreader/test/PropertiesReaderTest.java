@@ -33,7 +33,7 @@ public class PropertiesReaderTest {
 		options.addArguments("--disable-dev-shm-usage");
 		driver = new ChromeDriver(options);
 		driver.get(website);
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		driver.manage().window().setSize(new Dimension(1366, 768));
 
 	}
@@ -46,7 +46,6 @@ public class PropertiesReaderTest {
 	public void test1() throws FileNotFoundException, IOException, Throwable {
 
 		setup();
-
 		PropertiesReader prop = new PropertiesReader();
 		String srch = prop.getKey("searchtext");
 		GooglePage google = new GooglePage(driver);
