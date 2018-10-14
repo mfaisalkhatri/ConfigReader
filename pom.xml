@@ -51,6 +51,13 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<suite-xml>testng.xml</suite-xml>
 		<arg1>-Dfile.encoding=UTF-8 -Xdebug -Xnoagent</arg1>
+		<maven.gpg.version>1.6</maven.gpg.version>
+		<surefire-version>2.22.0</surefire-version>
+		<maven.clean.version>3.1.0</maven.clean.version>
+		<maven.resource.version>3.1.0</maven.resource.version>
+		<nexus.version>1.6.8</nexus.version>
+		<jacoco.version>0.8.1</jacoco.version>
+		<sonar.version>5.5.0.14655</sonar.version>
 	</properties>
 
 	<distributionManagement>
@@ -88,21 +95,47 @@
 	</dependencies>
 
 	<profiles>
-		<!-- GPG Signature on release -->
 		<profile>
-			<id>release-sign-artifacts</id>
-			<activation>
-				<property>
-					<name>performRelease</name>
-					<value>true</value>
-				</property>
-			</activation>
+			<id>coverage-per-test</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<version>${surefire-version}</version>
+						<executions>
+							<execution>
+								<goals>
+									<goal>test</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<suiteXmlFiles>
+								<suiteXmlFile>${suite-xml}</suiteXmlFile>
+							</suiteXmlFiles>
+							<argLine>${argLine}</argLine>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+			<dependencies>
+				<dependency>
+					<groupId>org.sonarsource.java</groupId>
+					<artifactId>sonar-jacoco-listeners</artifactId>
+					<version>${sonar.version}</version>
+					<scope>test</scope>
+				</dependency>
+			</dependencies>
+		</profile>
+		<profile>
+			<id>release</id>
 			<build>
 				<plugins>
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-gpg-plugin</artifactId>
-						<version>1.6</version>
+						<version>${maven.gpg.version}</version>
 						<executions>
 							<execution>
 								<id>sign-artifacts</id>
@@ -112,6 +145,17 @@
 								</goals>
 							</execution>
 						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.sonatype.plugins</groupId>
+						<artifactId>nexus-staging-maven-plugin</artifactId>
+						<version>${nexus.version}</version>
+						<extensions>true</extensions>
+						<configuration>
+							<serverId>ossrh</serverId>
+							<nexusUrl>https://oss.sonatype.org/</nexusUrl>
+							<autoReleaseAfterClose>true</autoReleaseAfterClose>
+						</configuration>
 					</plugin>
 				</plugins>
 			</build>
