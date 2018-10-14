@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: selenium/standalone-chrome
+      - image: circleci/openjdk:8-node-browsers-legacy
     
     working_directory: ~/repo
 
