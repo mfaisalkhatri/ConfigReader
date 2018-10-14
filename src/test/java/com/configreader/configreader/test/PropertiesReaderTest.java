@@ -31,6 +31,7 @@ public class PropertiesReaderTest {
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--no-sandbox");
 		options.addArguments("--disable-dev-shm-usage");
+		options.setExperimentalOption("useAutomationExtension", false);
 		driver = new ChromeDriver(options);
 		driver.get(website);
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
