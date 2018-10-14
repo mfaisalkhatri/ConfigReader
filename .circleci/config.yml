@@ -34,7 +34,7 @@ jobs:
           key: v1-dependencies-{{ checksum "pom.xml" }}
       
       - run: mvn clean install -DskipTests=true
-      - run: chmod +x /root/repo/target/classes/drivers/chromedriver
+      - run: chmod +x ./repo/target/classes/drivers/chromedriver
       
       # run tests!
       - run: mvn test
