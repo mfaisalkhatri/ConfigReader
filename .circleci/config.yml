@@ -26,6 +26,7 @@ jobs:
           - v1-dependencies-
 
       - run: mvn dependency:go-offline
+      - run: chmod 744 /drivers/chromedriver.sh
 
       - save_cache:
           paths:

@@ -3,3 +3,5 @@
 *.jpg
 test-output/
 target/
+logs/
+.settings/
