@@ -14,7 +14,7 @@ public class GooglePage {
 	}
 
 	public void searchText(String searchText) {
-		WebElement srchBox = driver.findElement(By.id("lst-ib"));
+		WebElement srchBox = driver.findElement(By.name("q"));
 		srchBox.click();
 		srchBox.sendKeys(searchText);
 		srchBox.sendKeys(Keys.TAB);
