@@ -10,6 +10,34 @@
 
 	<name>propertiesfilereader</name>
 	<url>http://maven.apache.org</url>
+
+	<organization>
+		<name>Faisal Khatri</name>
+		<url>https://github.com/mfaisalkhatri</url>
+	</organization>
+
+	<licenses>
+		<license>
+			<name>The Apache License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<name>Faisal Khatri</name>
+			<email>mohammadfaisalkhatri@gmail.com</email>
+			<roles>
+				<role>Lead Contributor</role>
+				<role>Maintainer</role>
+			</roles>
+			<organization>Faisal Khatri</organization>
+			<organizationUrl>https://github.com/mfaisalkhatri</organizationUrl>
+			<timezone>+5</timezone>
+		</developer>
+	</developers>
+
 	<scm>
 		<connection>scm:git:git@github.com:mfaisalkhatri/ConfigReader.git</connection>
 		<developerConnection>scm:git:git@github.com:mfaisalkhatri/ConfigReader.git</developerConnection>
@@ -132,6 +160,30 @@
 						<phase>deploy</phase>
 						<goals>
 							<goal>deploy</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.sonatype.plugins</groupId>
+				<artifactId>nexus-staging-maven-plugin</artifactId>
+				<version>1.6.7</version>
+				<extensions>true</extensions>
+				<configuration>
+					<serverId>ossrh</serverId>
+					<nexusUrl>https://oss.sonatype.org/</nexusUrl>
+					<autoReleaseAfterClose>true</autoReleaseAfterClose>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>3.0.1</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
 						</goals>
 					</execution>
 				</executions>
