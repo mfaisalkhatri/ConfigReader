@@ -30,7 +30,6 @@ public class PropertiesReaderTest {
 		osSetup.setup();
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--no-sandbox");
-		options.addArguments("--headless");
 		options.addArguments("--disable-dev-shm-usage");
 		options.setExperimentalOption("useAutomationExtension", false);
 		driver = new ChromeDriver(options);
