@@ -5,7 +5,7 @@
 
 	<groupId>com.configreader</groupId>
 	<artifactId>configreader</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>propertiesfilereader</name>
@@ -82,6 +82,12 @@
 								<goals>
 									<goal>sign</goal>
 								</goals>
+								<configuration>
+									<configuration>
+										<keyname>${gpg.keyname}</keyname>
+										<passphraseServerId>${gpg.keyname}</passphraseServerId>
+									</configuration>
+								</configuration>
 							</execution>
 						</executions>
 					</plugin>
