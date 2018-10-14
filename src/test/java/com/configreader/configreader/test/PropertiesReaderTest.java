@@ -30,6 +30,7 @@ public class PropertiesReaderTest {
 		osSetup.setup();
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--no-sandbox");
+		options.addArguments("--headless");
 		options.addArguments("--disable-dev-shm-usage");
 		options.setExperimentalOption("useAutomationExtension", false);
 		driver = new ChromeDriver(options);
@@ -79,7 +80,7 @@ public class PropertiesReaderTest {
 		String invalidval = prop.getKey("invalidval");
 		String url = prop.getKey("url");
 
-		System.out.println(invalidval + " " + exe + " " + url);
+		System.out.println("Values in config file are" +invalidval + " " + exe + " " + url);
 
 	}
 }
