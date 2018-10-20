@@ -38,4 +38,4 @@ jobs:
       -  run: chmod +x /root/repo/target/classes/drivers/chromedriver 
       
       # run tests!
-      - run: mvn test
+      - run: docker run --rm -p 5900:5900 -v "$PWD":/usr/src wasiqb/coteafs-selenium:1.0.0

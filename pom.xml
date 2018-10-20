@@ -11,7 +11,7 @@
 	<name>configreader</name>
 	<description>A simplified framework for reading config.properties file.</description>
 	<url>https://github.com/mfaisalkhatri/ConfigReader</url>
-	
+
 
 	<organization>
 		<name>Faisal Khatri</name>
@@ -118,22 +118,6 @@
 							<argLine>${argLine}</argLine>
 						</configuration>
 					</plugin>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-javadoc-plugin</artifactId>
-						<version>${maven.javadoc.version}</version>
-						<configuration>
-							<encoding>${maven.source.encoding}</encoding>
-						</configuration>
-						<executions>
-							<execution>
-								<id>attach-javadocs</id>
-								<goals>
-									<goal>jar</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
 				</plugins>
 			</build>
 		</profile>
@@ -192,6 +176,22 @@
 						${arg1}
 					</argLine>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>${maven.javadoc.version}</version>
+				<configuration>
+					<encoding>${maven.source.encoding}</encoding>
+				</configuration>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 			<plugin>
 				<artifactId>maven-deploy-plugin</artifactId>

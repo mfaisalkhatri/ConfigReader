@@ -175,3 +175,5 @@
 2018-10-20 17:04:09 ERROR PropertiesReader:42 - invalidval - Key not found in the file..
 2018-10-20 17:43:55 INFO  PropertiesReader:27 - Properties File loaded successfully.
 2018-10-20 17:44:16 ERROR PropertiesReader:57 - invalidval - Key not found in the file..
+2018-10-20 17:53:49 INFO  PropertiesReader:27 - Properties File loaded successfully.
+2018-10-20 17:54:06 ERROR PropertiesReader:57 - invalidval - Key not found in the file..
