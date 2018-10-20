@@ -13,14 +13,25 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.configreader.configreader.main.GooglePage;
 import com.configreader.configreader.main.PropertiesReader;
+import com.configreader.configreader.pages.GooglePage;
 import com.configreader.configreader.utils.OSCheck;
 
+/**
+ * Unit Tests for checking values from config file.
+ * @author Faisal Khatri
+ * @version 1.0.0
+ * @since 2018-10-20
+ *
+ */
 public class PropertiesReaderTest {
 
 	private WebDriver driver = null;
 
+	/**
+	 * This is setup method to initialize browser.
+	 * @throws IOException
+	 */
 	public void setup() throws IOException {
 
 		PropertiesReader prop = new PropertiesReader();
@@ -40,10 +51,19 @@ public class PropertiesReaderTest {
 
 	}
 
+	/**
+	 * This method quits browser
+	 */
 	public void quitBrowser() {
 		driver.quit();
 	}
 
+	/**
+	 * Test 1
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 * @throws Throwable
+	 */
 	@Test(priority = 1)
 	public void test1() throws FileNotFoundException, IOException, Throwable {
 
@@ -57,6 +77,12 @@ public class PropertiesReaderTest {
 		quitBrowser();
 	}
 
+	/**
+	 * Test 2
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 * @throws Throwable
+	 */
 	@Test(priority = 2)
 	public void test2() throws FileNotFoundException, IOException, Throwable {
 		PropertiesReader prop = new PropertiesReader();
@@ -73,6 +99,10 @@ public class PropertiesReaderTest {
 
 	}
 
+	/**
+	 * Test 3 
+	 * @throws IOException
+	 */
 	@Test(priority = 3)
 	public void test3() throws IOException {
 		PropertiesReader prop = new PropertiesReader();
@@ -80,7 +110,7 @@ public class PropertiesReaderTest {
 		String invalidval = prop.getKey("invalidval");
 		String url = prop.getKey("url");
 
-		System.out.println("Values in config file are" +invalidval + " " + exe + " " + url);
+		System.out.println("Values in config file are: " +invalidval + " " + exe + " " + url);
 
 	}
 }

@@ -1,10 +1,19 @@
 package com.configreader.configreader.utils;
 
+/**
+ * This Class check the OS installed on the machine.
+ * @author Faisal Khatri
+ * @version 1.0.0
+ * @since 2018-10-20
+ */
 public class OSCheck {
 
 	private static final String DEF_FOLDER = "drivers/";
 	private static final String OS = System.getProperty("os.name").toLowerCase();
 
+	/**
+	 * This method checks the OS installed and accordingly set chromedriver.
+	 */
 	public void setup() {
 
 		StringBuilder sb = new StringBuilder(DEF_FOLDER);

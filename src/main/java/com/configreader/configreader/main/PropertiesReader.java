@@ -7,6 +7,14 @@ import java.util.Properties;
 
 import org.apache.log4j.Logger;
 
+/**
+ * This is base class which helps reading the config file.
+ * 
+ * @author Faisal Khatri
+ * @version 1.0.0
+ * @since 2018-10-20
+ */
+
 public class PropertiesReader {
 	private static Properties prop;
 	private static Logger logger = Logger.getLogger(PropertiesReader.class);
@@ -31,6 +39,13 @@ public class PropertiesReader {
 		}
 	}
 
+	
+	/**
+	 * 
+	 * @param key
+	 * @return Value of the key from config file.
+	 * @throws IOException
+	 */
 	public String getKey(String key) throws IOException {
 
 		try {

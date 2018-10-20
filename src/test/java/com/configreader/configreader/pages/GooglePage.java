@@ -1,4 +1,4 @@
-package com.configreader.configreader.main;
+package com.configreader.configreader.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -7,14 +7,26 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+/**
+ *
+ * @author Faisal Khatri
+ * @version 1.0.0
+ * @since 2018-10-20
+ */
 public class GooglePage {
 
-	public final WebDriver driver;
+	private final WebDriver driver;
 
+	/**
+	 * @param driver
+	 */
 	public GooglePage(WebDriver driver) {
 		this.driver = driver;
 	}
 
+	/**
+	 * @param searchText
+	 */
 	public void searchText(String searchText) {
 		WebDriverWait wait = new WebDriverWait(driver, 5);
 		WebElement searchBox = driver.findElement(By.name("q"));

@@ -5,11 +5,13 @@
 
 	<groupId>com.github.mfaisalkhatri</groupId>
 	<artifactId>configreader</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<packaging>jar</packaging>
 
 	<name>configreader</name>
-	<url>http://maven.apache.org</url>
+	<description>A simplified framework for reading config.properties file.</description>
+	<url>https://github.com/mfaisalkhatri/ConfigReader</url>
+	
 
 	<organization>
 		<name>Faisal Khatri</name>
@@ -56,6 +58,7 @@
 		<maven.clean.version>3.1.0</maven.clean.version>
 		<maven.resource.version>3.1.0</maven.resource.version>
 		<nexus.version>1.6.8</nexus.version>
+		<maven.javadoc.version>3.0.1</maven.javadoc.version>
 	</properties>
 
 	<distributionManagement>
@@ -65,7 +68,7 @@
 		</snapshotRepository>
 		<repository>
 			<id>ossrh</id>
-			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
 		</repository>
 	</distributionManagement>
 
@@ -114,6 +117,22 @@
 							</suiteXmlFiles>
 							<argLine>${argLine}</argLine>
 						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-javadoc-plugin</artifactId>
+						<version>${maven.javadoc.version}</version>
+						<configuration>
+							<encoding>${maven.source.encoding}</encoding>
+						</configuration>
+						<executions>
+							<execution>
+								<id>attach-javadocs</id>
+								<goals>
+									<goal>jar</goal>
+								</goals>
+							</execution>
+						</executions>
 					</plugin>
 				</plugins>
 			</build>
