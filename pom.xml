@@ -8,7 +8,7 @@
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>propertiesfilereader</name>
+	<name>configreader</name>
 	<url>http://maven.apache.org</url>
 
 	<organization>
@@ -94,7 +94,7 @@
 
 	<profiles>
 		<profile>
-			<id>coverage-per-test</id>
+			<id>ossrh</id>
 			<build>
 				<plugins>
 					<plugin>
