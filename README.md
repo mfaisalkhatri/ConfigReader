@@ -20,14 +20,23 @@
 * Stay updated with the project progress by Watching it.
 
 **How to use this Framework:**
-01. Reading "Config.Properties" is made much simple and easy now. Check the sample code and tests below:
+01. Add the following dependency in your pom.xml file: 
 
+```<!-- https://mvnrepository.com/artifact/com.github.mfaisalkhatri/configreader -->
+<dependency>
+    <groupId>com.github.mfaisalkhatri</groupId>
+    <artifactId>configreader</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
+
+02. Reading "Config.Properties" is made much simple and easy now. Check the sample code and tests below:
 ```
 This is the config file extract: 
 searchtext=Apple iphone 8
 ```
 
-02. You can instantiate "PropertiesReader" class and get the values from the properties file in below defined way:
+03. Once the dependency jar is downloaded in project, Use "PropertiesReader" class and get the values from the properties file in below defined way:
 ```
 @Test
 	public void Test() throws FileNotFoundException, IOException, Throwable {
