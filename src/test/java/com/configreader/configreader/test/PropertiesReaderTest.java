@@ -47,7 +47,7 @@ public class PropertiesReaderTest {
 		driver = new ChromeDriver(options);
 		driver.get(website);
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		driver.manage().window().setSize(new Dimension(1366, 768));
+		driver.manage().window().setSize(new Dimension(1024, 768));
 
 	}
 
