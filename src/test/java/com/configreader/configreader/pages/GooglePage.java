@@ -28,7 +28,7 @@ public class GooglePage {
 	 * @param searchText
 	 */
 	public void searchText(String searchText) {
-		WebDriverWait wait = new WebDriverWait(driver, 5);
+		WebDriverWait wait = new WebDriverWait(driver, 10);
 		WebElement searchBox = driver.findElement(By.name("q"));
 		WebElement srchBox = wait.until(ExpectedConditions.visibilityOf(searchBox));
 		srchBox.click();
