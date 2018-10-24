@@ -35,7 +35,8 @@ jobs:
       
       - run: mvn clean install -DskipTests=true
       #- run: chmod +x /home/circleci/repo/target/classes/drivers/chromedriver
-      #- run: chmod +x /root/repo/target/classes/drivers/chromedriver 
+       - run: chmod +x /root/repo/target/classes/drivers/chromedriver 
+      
       
       # run tests!
       - run: mvn test
