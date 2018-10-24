@@ -8,7 +8,7 @@ jobs:
     docker:
       # specify the version you desire here
       #- image: circleci/openjdk:8-node-browsers-legacy
-       - image: selenium/standalone-chrome:3.14.0
+       - image: markhobson/maven-chrome:latest
     
     working_directory: ~/repo
 
