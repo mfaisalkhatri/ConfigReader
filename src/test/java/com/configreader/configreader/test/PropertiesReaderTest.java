@@ -18,6 +18,7 @@ import com.configreader.configreader.utils.OSCheck;
 
 /**
  * Unit Tests for checking values from config file.
+ * 
  * @author Faisal Khatri
  * @version 1.0.0
  * @since 2018-10-20
@@ -29,6 +30,7 @@ public class PropertiesReaderTest {
 
 	/**
 	 * This is setup method to initialize browser.
+	 * 
 	 * @throws IOException
 	 */
 	public void setup() throws IOException {
@@ -40,14 +42,12 @@ public class PropertiesReaderTest {
 		osSetup.setup();
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--no-sandbox");
-		options.addArguments("--window-size=1024,768");
+		options.addArguments("--headless");
 		options.addArguments("--disable-dev-shm-usage");
 		options.setExperimentalOption("useAutomationExtension", false);
 		driver = new ChromeDriver(options);
 		driver.get(website);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		//driver.manage().window().setSize(new Dimension(1024, 768));
-
 	}
 
 	/**
@@ -59,6 +59,7 @@ public class PropertiesReaderTest {
 
 	/**
 	 * Test 1
+	 * 
 	 * @throws FileNotFoundException
 	 * @throws IOException
 	 * @throws Throwable
@@ -77,6 +78,7 @@ public class PropertiesReaderTest {
 
 	/**
 	 * Test 2
+	 * 
 	 * @throws FileNotFoundException
 	 * @throws IOException
 	 * @throws Throwable
@@ -98,7 +100,8 @@ public class PropertiesReaderTest {
 	}
 
 	/**
-	 * Test 3 
+	 * Test 3
+	 * 
 	 * @throws IOException
 	 */
 	@Test(priority = 3)
@@ -108,7 +111,7 @@ public class PropertiesReaderTest {
 		String invalidval = prop.getKey("invalidval");
 		String url = prop.getKey("url");
 
-		System.out.println("Values in config file are: " +invalidval + " " + exe + " " + url);
+		System.out.println("Values in config file are: " + invalidval + " " + exe + " " + url);
 
 	}
 }
