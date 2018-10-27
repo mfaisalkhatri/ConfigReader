@@ -6,7 +6,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -41,13 +40,13 @@ public class PropertiesReaderTest {
 		osSetup.setup();
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--no-sandbox");
-		options.addArguments("--headless");
+		options.addArguments("start-maximized");
 		options.addArguments("--disable-dev-shm-usage");
 		options.setExperimentalOption("useAutomationExtension", false);
 		driver = new ChromeDriver(options);
 		driver.get(website);
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		driver.manage().window().setSize(new Dimension(1024, 768));
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		//driver.manage().window().setSize(new Dimension(1024, 768));
 
 	}
 
@@ -73,7 +72,6 @@ public class PropertiesReaderTest {
 		GooglePage google = new GooglePage(driver);
 		google.searchText(srch);
 		sleep(2000);
-
 		quitBrowser();
 	}
 
